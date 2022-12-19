@@ -81,14 +81,18 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Nested array</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../nested_array/nested_array.html">Nested array</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -561,14 +565,14 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    With :str: input:</span>
+<span class="sd">    With :code:`str` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; name = &quot;sigmoid&quot;</span>
 <span class="sd">    &gt;&gt;&gt; sigmoid = ivy.deserialize(name)</span>
 <span class="sd">    &gt;&gt;&gt; print(sigmoid)</span>
 <span class="sd">    &lt;function sigmoid at XXXXXXXXXXXXXX&gt;</span>
 
-<span class="sd">    With :str and dict: input:</span>
+<span class="sd">    With :code:`str` and :code:`dict` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; name = &quot;custom_fn&quot;</span>
 <span class="sd">    &gt;&gt;&gt; objects = {&quot;custom_fn&quot;: lambda x: x}</span>
@@ -635,7 +639,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    With :str: input:</span>
+<span class="sd">    With :code:`str` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; name = &quot;sigmoid&quot;</span>
 <span class="sd">    &gt;&gt;&gt; sigmoid = ivy.get(name)</span>
@@ -647,7 +651,7 @@
 <span class="sd">    &gt;&gt;&gt; print(linear)</span>
 <span class="sd">    &lt;function linear at XXXXXXXXXXXXXX&gt;</span>
 
-<span class="sd">    With :str and dict: input:</span>
+<span class="sd">    With :code:`str` and :code:`dict` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; name = &quot;custom_fn&quot;</span>
 <span class="sd">    &gt;&gt;&gt; objects = {&quot;custom_fn&quot;: lambda x: x}</span>
