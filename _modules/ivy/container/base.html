@@ -90,10 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Nested array</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../nested_array/nested_array.html">Nested array</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ivy"">Ivy</a></li>
@@ -3228,6 +3224,8 @@
 <span class="sd">        inplace</span>
 <span class="sd">            Whether to apply the mapping inplace, or return a new container.</span>
 <span class="sd">            Default is ``False``.</span>
+<span class="sd">        map_sequences</span>
+<span class="sd">            Whether to also map to sequences (lists and tuples). Default is ``False``.</span>
 <span class="sd">        key_chain</span>
 <span class="sd">            Chain of keys for this dict entry (Default value = &#39;&#39;)</span>
 
@@ -3254,9 +3252,7 @@
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">inplace</span><span class="p">:</span>
                     <span class="n">return_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span>
             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="n">map_sequences</span><span class="p">:</span>
-                <span class="n">ret</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">nested_map</span><span class="p">(</span>
-                    <span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">True</span><span class="p">,</span> <span class="n">shallow</span><span class="o">=</span><span class="kc">False</span>
-                <span class="p">)</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">nested_map</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">prune_unapplied</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="n">return_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret</span>

@@ -35,7 +35,6 @@ Experimental
    experimental/quantile.rst
    experimental/diagflat.rst
    experimental/kron.rst
-   experimental/matrix_exp.rst
    experimental/eig.rst
    experimental/triu_indices.rst
    experimental/vorbis_window.rst
@@ -43,7 +42,6 @@ Experimental
    experimental/kaiser_window.rst
    experimental/kaiser_bessel_derived_window.rst
    experimental/hamming_window.rst
-   experimental/tril_indices.rst
    experimental/is_native_dtype.rst
    experimental/flatten.rst
    experimental/moveaxis.rst
@@ -83,7 +81,6 @@ Experimental
    experimental/isclose.rst
    experimental/isposinf.rst
    experimental/isneginf.rst
-   experimental/angle.rst
    experimental/nan_to_num.rst
    experimental/logaddexp2.rst
    experimental/signbit.rst
