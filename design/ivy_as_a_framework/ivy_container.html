@@ -78,9 +78,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/experimental.html">Experimental</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/compilation.html">Compilation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/control_flow_ops.html">Control flow ops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/creation.html">Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/data_type.html">Data type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functional/ivy/device.html">Device</a></li>
@@ -109,14 +110,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../stateful/optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stateful/converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/module.html">Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/initializers.html">Initializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stateful/converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stateful/helpers.html">Helpers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stateful/optimizers.html">Optimizers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Nested array</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nested_array/nested_array.html">Nested array</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -384,15 +390,15 @@ This is not possible with Dicts.</p>
                    <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]])}})</span>
 
 <span class="c1"># save and load as hdf5</span>
-<span class="n">weights</span><span class="o">.</span><span class="n">to_disk_as_hdf5</span><span class="p">(</span><span class="s1">&#39;weights.hdf5&#39;</span><span class="p">)</span>
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">from_disk_as_hdf5</span><span class="p">(</span><span class="s1">&#39;weights.hdf5&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">identical</span><span class="p">(</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">cont_to_disk_as_hdf5</span><span class="p">(</span><span class="s1">&#39;weights.hdf5&#39;</span><span class="p">)</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_from_disk_as_hdf5</span><span class="p">(</span><span class="s1">&#39;weights.hdf5&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_identical</span><span class="p">(</span>
        <span class="p">[</span><span class="n">loaded</span><span class="p">,</span> <span class="n">weights</span><span class="p">],</span> <span class="n">same_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># save and load as pickled</span>
-<span class="n">weights</span><span class="o">.</span><span class="n">to_disk_as_pickled</span><span class="p">(</span><span class="s1">&#39;weights.pickled&#39;</span><span class="p">)</span>
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">from_disk_as_pickled</span><span class="p">(</span><span class="s1">&#39;weights.pickled&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">identical</span><span class="p">(</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">cont_to_disk_as_pickled</span><span class="p">(</span><span class="s1">&#39;weights.pickled&#39;</span><span class="p">)</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_from_disk_as_pickled</span><span class="p">(</span><span class="s1">&#39;weights.pickled&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_identical</span><span class="p">(</span>
        <span class="p">[</span><span class="n">loaded</span><span class="p">,</span> <span class="n">weights</span><span class="p">],</span> <span class="n">same_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -405,7 +411,7 @@ This is not possible with Dicts.</p>
                      <span class="s1">&#39;optim&#39;</span><span class="p">:</span> <span class="s1">&#39;ADAM&#39;</span><span class="p">}})</span>
 
 <span class="c1"># save and load as json</span>
-<span class="n">config</span><span class="o">.</span><span class="n">to_disk_as_json</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">cont_to_disk_as_json</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
 
 <span class="c1"># config.json contents -------------#</span>
 <span class="c1"># {                                 #</span>
@@ -421,8 +427,8 @@ This is not possible with Dicts.</p>
 <span class="c1"># }                                 #</span>
 <span class="c1"># ----------------------------------#</span>
 
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">from_disk_as_json</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">config</span> <span class="o">==</span> <span class="n">loaded</span><span class="p">)</span><span class="o">.</span><span class="n">all_true</span><span class="p">()</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_from_disk_as_json</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">config</span> <span class="o">==</span> <span class="n">loaded</span><span class="p">)</span><span class="o">.</span><span class="n">cont_all_true</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -437,7 +443,7 @@ We can then very quickly find conflicting leaves.</p>
 <span class="n">cnt1</span> <span class="o">=</span> <span class="n">cnt0</span><span class="o">.</span><span class="n">cont_deep_copy</span><span class="p">()</span>
 <span class="n">cnt1</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">cnt0</span><span class="p">,</span> <span class="n">cnt1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_diff</span><span class="p">(</span><span class="n">cnt0</span><span class="p">,</span> <span class="n">cnt1</span><span class="p">))</span>
 
 <span class="p">{</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">]),</span>
@@ -449,7 +455,7 @@ We can then very quickly find conflicting leaves.</p>
 </pre></div>
 </div>
 <p>Or perhaps we saved JSON configuration files to disk for two different experiment runs, and then want to quickly see their differences.
-The <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.diff()</span></code> method will also detect differences in the hierarchical structure and key name differences.</p>
+The <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.cont_diff()</span></code> method will also detect differences in the hierarchical structure and key name differences.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config0</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
        <span class="p">{</span><span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
         <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
@@ -460,7 +466,7 @@ The <code class="xref py py-meth docutils literal notranslate"><span class="pre"
         <span class="s1">&#39;dropout&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
         <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">})</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">config0</span><span class="p">,</span> <span class="n">config1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">cont_diff</span><span class="p">(</span><span class="n">config0</span><span class="p">,</span> <span class="n">config1</span><span class="p">))</span>
 
 <span class="p">{</span>
     <span class="n">batch_size</span><span class="p">:</span> <span class="p">{</span>
@@ -477,7 +483,7 @@ The <code class="xref py py-meth docutils literal notranslate"><span class="pre"
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.diff()</span></code> method can be applied to arbitrarily many containers at once in a single call, not just two as in the examples above.</p>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.cont_diff()</span></code> method can be applied to arbitrarily many containers at once in a single call, not just two as in the examples above.</p>
 </section>
 <section id="customized-representations">
 <h2>Customized Representations<a class="headerlink" href="#customized-representations" title="Permalink to this heading"></a></h2>
@@ -647,7 +653,7 @@ However the recursive methods of the Ivy Container make things even more conveni
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
-<p>As briefly alluded to when explaining the <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.diff()</span></code> method, the container class is also the ideal data type for storing experiment configurations.
+<p>As briefly alluded to when explaining the <code class="xref py py-meth docutils literal notranslate"><span class="pre">ivy.Container.cont_diff()</span></code> method, the container class is also the ideal data type for storing experiment configurations.
 Configurations can either first be stored to disk as a JSON file and then loaded into the <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Container</span></code> for recursive comparisons to see differences between experiments, or the config can be specified in the code and then saved to disk as a JSON to keep a permanent log afterwards.</p>
 </section>
 <section id="data-loading">
@@ -767,7 +773,7 @@ The following code is possible thanks to the recursive operation of the containe
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Ivy Team.</p>
+    <p>&#169; Copyright 2020-2023, Ivy Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -77,7 +77,6 @@ Elementwise
    elementwise/rad2deg.rst
    elementwise/trunc_divide.rst
    elementwise/isreal.rst
-   elementwise/real.rst
 
 .. _`discord`: https://discord.gg/ZVQdvbzNQJ 
 .. _`elementwise forum`: https://discord.com/channels/799879767196958751/1028298919488278589
