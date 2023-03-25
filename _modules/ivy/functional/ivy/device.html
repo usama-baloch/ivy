@@ -689,8 +689,8 @@ document.write(`
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">get_all_ivy_arrays_on_dev</span><span class="p">(</span><span class="n">device</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="print_all_ivy_arrays_on_dev"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.print_all_ivy_arrays_on_dev">[docs]</a><span class="nd">@handle_nestable</span>
-<span class="nd">@handle_exceptions</span>
+<div class="viewcode-block" id="print_all_ivy_arrays_on_dev"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.print_all_ivy_arrays_on_dev">[docs]</a><span class="nd">@handle_exceptions</span>
+<span class="nd">@handle_nestable</span>
 <span class="k">def</span> <span class="nf">print_all_ivy_arrays_on_dev</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDevice</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -733,9 +733,9 @@ document.write(`
 <span class="c1"># Retrieval</span>
 
 
-<div class="viewcode-block" id="dev"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.dev">[docs]</a><span class="nd">@handle_nestable</span>
+<div class="viewcode-block" id="dev"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.dev">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
 <span class="nd">@handle_exceptions</span>
-<span class="nd">@to_native_arrays_and_back</span>
+<span class="nd">@handle_nestable</span>
 <span class="k">def</span> <span class="nf">dev</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">as_native</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDevice</span><span class="p">]:</span>
@@ -1281,10 +1281,10 @@ document.write(`
 
 
 <div class="viewcode-block" id="to_device"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.to_device">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
-<span class="nd">@handle_out_argument</span>
-<span class="nd">@handle_nestable</span>
 <span class="nd">@handle_exceptions</span>
+<span class="nd">@handle_nestable</span>
 <span class="nd">@handle_array_like_without_promotion</span>
+<span class="nd">@handle_out_argument</span>
 <span class="k">def</span> <span class="nf">to_device</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">device</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDevice</span><span class="p">],</span>
@@ -1597,8 +1597,8 @@ document.write(`
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">supported</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="function_supported_devices"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.function_supported_devices">[docs]</a><span class="nd">@handle_nestable</span>
-<span class="nd">@handle_exceptions</span>
+<div class="viewcode-block" id="function_supported_devices"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.function_supported_devices">[docs]</a><span class="nd">@handle_exceptions</span>
+<span class="nd">@handle_nestable</span>
 <span class="k">def</span> <span class="nf">function_supported_devices</span><span class="p">(</span><span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">recurse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the supported devices of the current backend&#39;s function.</span>
 
@@ -1635,8 +1635,8 @@ document.write(`
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">supported_devices</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="function_unsupported_devices"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.function_unsupported_devices">[docs]</a><span class="nd">@handle_nestable</span>
-<span class="nd">@handle_exceptions</span>
+<div class="viewcode-block" id="function_unsupported_devices"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.device.html#ivy.functional.ivy.device.function_unsupported_devices">[docs]</a><span class="nd">@handle_exceptions</span>
+<span class="nd">@handle_nestable</span>
 <span class="k">def</span> <span class="nf">function_unsupported_devices</span><span class="p">(</span><span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">recurse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the unsupported devices of the current backend&#39;s function.</span>
 
