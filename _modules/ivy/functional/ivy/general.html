@@ -2439,8 +2439,7 @@ document.write(`
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">axes_lengths</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform einops repeat operation on input array x.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform einops repeat operation on input array x.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2458,6 +2457,9 @@ document.write(`
 <span class="sd">    -------</span>
 <span class="sd">    ret</span>
 <span class="sd">        New array with einops.repeat having been applied.</span>
+
+<span class="sd">    This function is *nestable*, and therefore also accepts :code:&#39;ivy.Container&#39;</span>
+<span class="sd">    instance in place of the argument.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -3639,7 +3641,11 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">current_backend</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">indices</span><span class="p">)</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
-        <span class="n">params</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">batch_dims</span><span class="o">=</span><span class="n">batch_dims</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span>
+        <span class="n">params</span><span class="p">,</span>
+        <span class="n">indices</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+        <span class="n">batch_dims</span><span class="o">=</span><span class="n">batch_dims</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">out</span>
     <span class="p">)</span></div>
 
 
@@ -3666,6 +3672,8 @@ document.write(`
 <span class="sd">        The array from which to gather values.</span>
 <span class="sd">    indices</span>
 <span class="sd">        Index array.</span>
+<span class="sd">    batch_dims</span>
+<span class="sd">        optional int, lets you gather different items from each element of a batch.</span>
 <span class="sd">    out</span>
 <span class="sd">        optional output array, for writing the result to. It must have a shape that the</span>
 <span class="sd">        inputs broadcast to.</span>
