@@ -12,7 +12,7 @@ def atleast_1d(*tensors):
 
 @to_ivy_arrays_and_back
 def flip(input, dims):
-    return ivy.flip(input, axis=dims)
+    return ivy.flip(input, axis=dims, copy=True)
 
 
 @to_ivy_arrays_and_back
@@ -24,7 +24,7 @@ def fliplr(input):
         message="requires tensor to be at least 2D",
         as_array=False,
     )
-    return ivy.fliplr(input)
+    return ivy.fliplr(input, copy=True)
 
 
 @to_ivy_arrays_and_back
@@ -36,7 +36,7 @@ def flipud(input):
         message="requires tensor to be at least 1D",
         as_array=False,
     )
-    return ivy.flipud(input)
+    return ivy.flipud(input, copy=True)
 
 
 @to_ivy_arrays_and_back
@@ -298,12 +298,12 @@ def rot90(input, k, dims):
     new_axes[min(dims)], new_axes[max(dims)] = max(dims), min(dims)
     if k == 1:
         flipped = ivy.flip(input, axis=dims[1])
-        return ivy.permute_dims(flipped, axes=new_axes)
+        return ivy.permute_dims(flipped, axes=new_axes, copy=True)
     elif k == 2:
-        return ivy.flip(input, axis=dims)
+        return ivy.flip(input, axis=dims, copy=True)
     elif k == 3:
         flipped = ivy.flip(input, axis=dims[0])
-        return ivy.permute_dims(flipped, axes=new_axes)
+        return ivy.permute_dims(flipped, axes=new_axes, copy=True)
     else:
         return input
 
@@ -362,6 +362,12 @@ def diff(input, n=1, dim=-1, prepend=None, append=None):
 @to_ivy_arrays_and_back
 def broadcast_shapes(*shapes):
     return ivy.broadcast_shapes(*shapes)
+
+
+@with_unsupported_dtypes({"2.0.1 and below": ("bfloat16",)}, "torch")
+@to_ivy_arrays_and_back
+def broadcast_to(tensor, shape):
+    return ivy.broadcast_to(tensor, shape)
 
 
 @to_ivy_arrays_and_back
